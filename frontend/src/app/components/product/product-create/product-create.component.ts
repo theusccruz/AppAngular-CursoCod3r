@@ -1,4 +1,6 @@
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-create',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _productService: ProductService,
+    private _router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+  }
+
+  createProduct(): void {
+    this._productService.showMessage('Produto criado!!');
+  }
+
+  cancel(): void {
+    this._router.navigate(['/products']);
   }
 
 }
