@@ -15,8 +15,8 @@ export class ProductService {
     private _http: HttpClient) { }
 
   showMessage(msg: string): void {
-    this._snackbar.open(msg, 'X', {
-      duration: 1000,
+    this._snackbar.open(msg, 'Fechar', {
+      duration: 2000,
       horizontalPosition: "right",
       verticalPosition: "top"
     })        
