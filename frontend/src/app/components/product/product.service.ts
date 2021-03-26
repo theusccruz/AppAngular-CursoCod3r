@@ -16,7 +16,7 @@ export class ProductService {
 
   showMessage(msg: string): void {
     this._snackbar.open(msg, 'Fechar', {
-      duration: 2000,
+      duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top"
     })        
@@ -24,5 +24,9 @@ export class ProductService {
 
   create(product: Product): Observable<Product> {
     return this._http.post<Product>(this.baseUrl, product)
+  }
+
+  read(): Observable<Product[]> {
+    return this._http.get<Product[]>(this.baseUrl)
   }
 }
