@@ -30,13 +30,18 @@ export class ProductService {
     return this._http.get<Product[]>(this.baseUrl);
   }
 
-  readById(id: string): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
+  readById(productId: number): Observable<Product> {
+    const url = `${this.baseUrl}/${productId}`;
     return this._http.get<Product>(url);
   } 
 
   update(product: Product): Observable<Product> {
     const url = `${this.baseUrl}/${product.id}`
     return this._http.put<Product>(url, product);
+  }
+
+  delete(productId: number): Observable<Product> {
+    const url = `${this.baseUrl}/${productId}`;
+    return this._http.delete<Product>(url);
   }
 }
