@@ -14,6 +14,16 @@
       "id": 3,
       "name": "Samsung S20",
       "price": 5000.89
+    },
+    {
+      "name": "Smartphone S20 Ultra",
+      "price": "12000",
+      "id": 4
+    },
+    {
+      "name": "Geladeira Consul",
+      "price": "5000.55",
+      "id": 5
     }
   ]
 }
