@@ -1,3 +1,9 @@
 table {
     width: 100%;
 }
+.edit > i {
+    color: #040fac;
+}
+.delete > i {
+    color: #e35e6b;
+}
