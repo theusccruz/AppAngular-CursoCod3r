@@ -1,6 +1,7 @@
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 3%;
 }
 button {
     margin-top: 2%;
