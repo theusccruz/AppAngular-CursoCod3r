@@ -29,15 +29,20 @@ export class ProductService {
     return EMPTY;
   }
 
-  create(product: Product): Observable<Product> {
+  isEmpty(product): boolean {
     if (product.name === '' || product.price === null) {
       this.showMessage('Preencha todos os campos corretamente!');
-    } else {
+      return true
+    }
+  }
+
+  create(product: Product): Observable<Product> {
+    if (!this.isEmpty(product)) {
       return this._http.post<Product>(this.baseUrl, product).pipe(
         map(obj => obj),
-        catchError(e => this.errorHandler(e))   
-      );   
-    }    
+        catchError(e => this.errorHandler(e))
+      );
+    }
   }
 
   read(): Observable<Product[]> {
@@ -52,22 +57,20 @@ export class ProductService {
   update(product: Product): Observable<Product> {
     const url = `${this.baseUrl}/${product.id}`;
 
-    if (product.name === '' || product.price === null) {
-      this.showMessage('Preencha todos os campos corretamente!');
-    } else {
+    if (!this.isEmpty(product)) {
       return this._http.put<Product>(url, product).pipe(
         map(obj => obj),
-        catchError(e => this.errorHandler(e))   
-      );   
-    }    
+        catchError(e => this.errorHandler(e))
+      );
+    }
   }
 
   delete(productId: number): Observable<Product> {
     const url = `${this.baseUrl}/${productId}`;
-    
+
     return this._http.delete<Product>(url).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))   
+      catchError(e => this.errorHandler(e))
     );
   }
 }
