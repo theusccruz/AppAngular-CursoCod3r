@@ -30,7 +30,7 @@ export class ProductService {
   }
 
   isEmpty(product): boolean {
-    if (product.name === '' || product.price === null) {
+    if (product.name === '' || product.price === '') {
       this.showMessage('Preencha todos os campos corretamente!');
       return true
     }
@@ -42,6 +42,8 @@ export class ProductService {
         map(obj => obj),
         catchError(e => this.errorHandler(e))
       );
+    } else {
+      return EMPTY;
     }
   }
 
@@ -62,6 +64,8 @@ export class ProductService {
         map(obj => obj),
         catchError(e => this.errorHandler(e))
       );
+    } else {
+      return EMPTY;
     }
   }
 

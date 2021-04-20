@@ -10,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductUpdateComponent implements OnInit {
 
-  product: Product;
+  product: Product = {
+    name: '',
+    price: null
+  }
 
   constructor(private _productService: ProductService,
     private _router: Router,
@@ -24,7 +27,7 @@ export class ProductUpdateComponent implements OnInit {
 
   updateProduct(): void {
     this._productService.update(this.product)
-    .subscribe(() => { 
+    .subscribe((e) => {       
       this._productService.showMessage(`Produto ${this.product.id} atualizado com sucesso!`);
       this._router.navigate(['/products']);
     })
