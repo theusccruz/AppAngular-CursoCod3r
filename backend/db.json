@@ -24,6 +24,18 @@
       "name": "Geladeira Consul",
       "price": "5000.55",
       "id": 5
+    },
+    {
+      "name": "Produto Novo",
+      "price": "12000",
+      "id": 6
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Matheus",
+      "lastName": "Cruz"
     }
   ]
 }
